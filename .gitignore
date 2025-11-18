@@ -1,0 +1,43 @@
+AIFlashcards_Backend/ai_service/venv
+AIFlashcards_Backend/node_modules
+
+# Compiled output
+AIFlashcards_Frontend/dist
+AIFlashcards_Frontend/tmp
+AIFlashcards_Frontend/out-tsc
+AIFlashcards_Frontend/bazel-out
+
+# Node
+AIFlashcards_Frontend/node_modules
+AIFlashcards_Frontend/npm-debug.log
+AIFlashcards_Frontend/yarn-error.log
+
+# IDEs and editors
+AIFlashcards_Frontend/.idea/
+AIFlashcards_Frontend/.project
+AIFlashcards_Frontend/.classpath
+AIFlashcards_Frontend/.c9/
+AIFlashcards_Frontend/*.launch
+AIFlashcards_Frontend/.settings/
+AIFlashcards_Frontend/*.sublime-workspace
+
+# Visual Studio Code
+AIFlashcards_Frontend/.vscode/*
+!AIFlashcards_Frontend/.vscode/settings.json
+!AIFlashcards_Frontend/.vscode/tasks.json
+!AIFlashcards_Frontend/.vscode/launch.json
+!AIFlashcards_Frontend/.vscode/extensions.json
+AIFlashcards_Frontend/.history/*
+
+# Miscellaneous
+AIFlashcards_Frontend/.angular/cache
+AIFlashcards_Frontend/.sass-cache/
+AIFlashcards_Frontend/connect.lock
+AIFlashcards_Frontend/coverage
+AIFlashcards_Frontend/libpeerconnection.log
+AIFlashcards_Frontend/testem.log
+AIFlashcards_Frontend/typings
+
+# System files
+AIFlashcards_Frontend/.DS_Store
+AIFlashcards_Frontend/Thumbs.db

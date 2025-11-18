@@ -60,7 +60,7 @@ This script will:
 Use the provided script to start backend, Python AI service, and frontend together:
 
 ```bash
-./runApp.sh
+./startApp.sh
 ```
 
 ### Backend (Node.js)
