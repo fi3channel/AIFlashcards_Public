@@ -1,0 +1,52 @@
+<div class="min-h-screen flex flex-col bg-gray-900 text-white">
+  <app-header></app-header>
+
+  <div class="flex flex-col flex-1 p-6 space-y-6">
+    <!-- Title -->
+    <h1 class="text-4xl font-bold text-center">Results</h1>
+
+    <!-- Results list -->
+    <div class="flex-1 overflow-y-auto space-y-4">
+      <div
+        *ngFor="let r of results"
+        class="p-4 rounded-lg shadow bg-gray-800 flex flex-col sm:flex-row sm:items-center sm:justify-between"
+      >
+        <!-- Left side: Title + Date -->
+        <div class="space-y-1">
+          <div class="text-xl font-semibold">{{ r.testTitle }}</div>
+          <div class="text-gray-400 text-sm">
+            {{ r.takenAt | date : 'dd.MM.yyyy' }}
+          </div>
+        </div>
+
+        <!-- Right side: Stats -->
+        <div class="text-right space-y-1">
+          <div>
+            <span class="font-bold">{{ getCorrectCount(r) }}</span> /
+            <span>{{ r.answers.length }}</span> Correct
+          </div>
+          <div
+            class="font-bold"
+            [ngClass]="{
+              'text-green-500': getPercentage(r) >= 70,
+              'text-yellow-500': getPercentage(r) >= 40 && getPercentage(r) < 70,
+              'text-red-500': getPercentage(r) < 40
+            }"
+          >
+            {{ getPercentage(r) }}%
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back button -->
+    <div class="flex justify-center pt-4">
+      <div
+        class="option-card w-full max-w-xs text-center py-4 px-6 rounded-xl bg-white/10 backdrop-blur-md hover:bg-white/20 transition cursor-pointer"
+        (click)="goToDashboard()"
+      >
+        <span class="text-lg font-semibold">Back to Dashboard</span>
+      </div>
+    </div>
+  </div>
+</div>

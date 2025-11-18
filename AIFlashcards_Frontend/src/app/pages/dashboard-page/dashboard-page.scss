@@ -1,0 +1,9 @@
+  /* Default section hover */
+  .section:hover {
+    background-color: #374151; /* Tailwind's bg-gray-700 */
+  }
+
+  /* If hovering an option-card, disable section hover */
+  .section:has(.option-card:hover) {
+    background-color: #1f2937 !important; /* Tailwind's bg-gray-800 */
+  }

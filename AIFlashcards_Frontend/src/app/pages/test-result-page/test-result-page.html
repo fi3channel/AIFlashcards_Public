@@ -1,0 +1,48 @@
+<div class="min-h-screen flex flex-col bg-gray-900 text-white">
+  <app-header></app-header>
+
+  <div class="flex flex-col flex-1 p-6 space-y-6">
+    <!-- Title -->
+    <h1 class="text-4xl font-bold text-center">Test Results</h1>
+
+    <!-- Score -->
+    <div class="text-center text-xl font-bold">
+      Correct: {{ correctCount }} / {{ results.length }} ({{ correctPercentage }}%)
+    </div>
+
+    <!-- Results list -->
+    <div class="flex-1 overflow-y-auto space-y-4">
+      <div *ngFor="let r of results; let i = index" class="p-4 rounded-lg shadow bg-gray-800">
+        <div class="flex justify-between items-center">
+          <span class="font-semibold">Q{{ i + 1 }}: {{ r.question.text }}</span>
+          <span
+            class="px-3 py-1 rounded-full text-sm"
+            [ngClass]="{
+              'bg-green-600': r.correct,
+              'bg-red-600': !r.correct
+            }"
+          >
+            {{ r.correct ? '✔ Correct' : '✖ Wrong' }}
+          </span>
+        </div>
+
+        <div class="mt-2 text-gray-300 text-sm">
+          <strong>Answer:</strong>
+          <span class="break-words whitespace-pre-line">
+            {{ r.question.answer }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back button -->
+    <div class="flex justify-center pt-4">
+      <div
+        class="option-card w-full max-w-xs text-center py-4 px-6 rounded-xl bg-white/10 backdrop-blur-md hover:bg-white/20 transition cursor-pointer"
+        (click)="goToDashboard()"
+      >
+        <span class="text-lg font-semibold">Back to Dashboard</span>
+      </div>
+    </div>
+  </div>
+</div>

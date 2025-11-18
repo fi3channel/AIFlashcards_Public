@@ -1,0 +1,100 @@
+<div class="min-h-screen flex flex-col bg-gray-900 text-white">
+  <app-header></app-header>
+
+  <!-- Main content: full height divided into 3 columns -->
+  <main class="flex flex-1 flex-row">
+    <!-- Create Test Section -->
+    <div
+      class="section flex-1 bg-gray-800 flex flex-col items-center justify-start pt-10 transition border-r-4 border-gray-600"
+    >
+      <!-- Section Title -->
+      <h2 class="text-2xl font-bold mb-8">Create Test</h2>
+
+      <!-- Options Container -->
+      <div class="flex flex-col items-center justify-center flex-grow space-y-6 w-full max-w-md">
+        <div
+          class="option-card w-full text-center py-4 px-6 rounded-xl bg-white/10 backdrop-blur-md hover:bg-white/20 transition cursor-pointer"
+          (click)="onCreateNewTest()"
+        >
+          <span class="text-lg font-semibold">Create New Test</span>
+        </div>
+        <div
+          class="option-card w-full text-center py-4 px-6 rounded-xl bg-white/10 backdrop-blur-md hover:bg-white/20 transition cursor-pointer"
+          (click)="onEditTest()"
+        >
+          <span class="text-lg font-semibold">Update Existing Test</span>
+        </div>
+        <div
+          class="option-card w-full text-center py-4 px-6 rounded-xl bg-white/10 backdrop-blur-md hover:bg-white/20 transition cursor-pointer"
+          (click)="onCreateNewTestWithAI()"
+        >
+          <span class="text-lg font-semibold">Create New Test with AI</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Practice Section -->
+    <div
+      class="section flex-1 bg-gray-800 flex flex-col items-center justify-start pt-10 transition border-r-4 border-gray-600"
+    >
+      <h2 class="text-2xl font-bold mb-8">Practice</h2>
+      <!-- Options Container -->
+      <div class="flex flex-col items-center justify-center flex-grow space-y-6 w-full max-w-md">
+        <div
+          class="option-card w-full text-center py-4 px-6 rounded-xl bg-white/10 backdrop-blur-md hover:bg-white/20 transition cursor-pointer"
+          (click)="onStartTest()"
+        >
+          <span class="text-lg font-semibold">Start Test</span>
+        </div>
+        <div
+          class="option-card w-full text-center py-4 px-6 rounded-xl bg-white/10 backdrop-blur-md hover:bg-white/20 transition cursor-pointer"
+          (click)="onPracticeTest()"
+        >
+          <span class="text-lg font-semibold">Practice Test</span>
+        </div>
+        <div
+          class="option-card w-full text-center py-4 px-6 rounded-xl bg-white/10 backdrop-blur-md hover:bg-white/20 transition cursor-pointer"
+          (click)="onResults()"
+        >
+          <span class="text-lg font-semibold">Check Test Results</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Analytics Section -->
+    <div
+      class="section flex-1 bg-gray-800 flex flex-col items-center justify-start pt-10 transition border-r-4 border-gray-600"
+    >
+      <h2 class="text-2xl font-bold mb-8">User Analytics</h2>
+
+      <!-- Analytics Container (like options) -->
+      <div class="flex flex-col items-center justify-center flex-grow w-full max-w-md">
+        <app-analytics></app-analytics>
+      </div>
+    </div>
+  </main>
+</div>
+
+<app-test-modal
+  *ngIf="showTestModal"
+  [title]="'Available Tests'"
+  [tests]="availableTests()"
+  (close)="closeTestModal()"
+  (selectTest)="onTestSelected($event)"
+></app-test-modal>
+
+<app-test-modal
+  *ngIf="showPracticeModal"
+  [title]="'Practice Available Tests'"
+  [tests]="availableTests()"
+  (close)="closePracticeModal()"
+  (selectTest)="onPracticeSelected($event)"
+></app-test-modal>
+
+<app-test-modal
+  *ngIf="showEditTestModal"
+  [title]="'Edit Available Tests'"
+  [tests]="availableTests()"
+  (close)="closeEditTestModal()"
+  (selectTest)="onUpdateTestSelected($event)"
+></app-test-modal>

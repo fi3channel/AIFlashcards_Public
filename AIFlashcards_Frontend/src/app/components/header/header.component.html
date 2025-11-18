@@ -1,0 +1,42 @@
+<header class="flex items-center justify-between bg-gray-800 px-6 py-0 shadow-lg relative">
+  <!-- Logo -->
+  <div class="flex items-center space-x-2">
+    <img src="assets/logo.png" alt="Logo" class="w-16 h-16">
+  </div>
+
+  <!-- Title -->
+  <h1 
+    class="text-2xl font-bold tracking-wide cursor-pointer hover:text-blue-400"
+    (click)="backToDashboard()"
+  >
+    AIFlashcards
+  </h1>
+
+  <!-- User info with dropdown -->
+  <div class="relative flex items-center space-x-2">
+
+    <!-- Wrap username in its own relative container -->
+    <div class="relative">
+      <span
+        class="cursor-pointer font-semibold hover:text-blue-400"
+        (click)="toggleMenu()"
+      >
+        {{ currentUser }}
+      </span>
+
+      <!-- Dropdown now positioned below username -->
+      <div
+        *ngIf="showMenu"
+        class="absolute right-1 mt-2 w-32 bg-gray-700 rounded-lg shadow-lg z-10"
+      >
+        <button
+          (click)="logout()"
+          class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-red-600 rounded-lg"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+
+  </div>
+</header>

@@ -1,0 +1,61 @@
+<div
+  class="flex flex-col justify-between p-6 bg-gray-800 rounded-xl shadow-lg"
+  style="width: 80vw; height: 80vh"
+>
+  <!-- Test title -->
+  <div class="text-center text-white mb-2">
+    <div class="text-4xl md:text-6xl font-semibold">
+      {{ title }}
+    </div>
+    <div class="text-lg md:text-xl text-gray-300 mt-2 font-bold">
+      Question {{ currentIndex + 1 }} / {{ totalQuestions }}
+    </div>
+  </div>
+
+  <!-- Top: Question (centered) + Answer (positioned lower) -->
+  <div class="relative flex-1 w-full p-6">
+    <!-- Question: keep centered -->
+    <div class="absolute left-0 right-0 top-1/2 transform -translate-y-1/2 px-4">
+      <div class="w-full max-h-[30vh] overflow-y-auto px-4 py-2 bg-gray-900 rounded-lg mx-auto">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center break-words whitespace-pre-line line-clamp-4"
+        >
+          {{ question.text }}
+        </h2>
+      </div>
+    </div>
+
+    <!-- Answer section -->
+    <div class="absolute left-0 right-0 bottom-20 flex flex-col items-center px-6">
+      <button
+        (click)="revealAnswer()"
+        *ngIf="!showAnswer"
+        class="px-6 py-3 text-lg md:text-xl rounded-full border border-white text-white bg-transparent hover:bg-white/10 transition"
+      >
+        Show Answer
+      </button>
+
+      <div
+        *ngIf="showAnswer"
+        class="w-full max-h-[40vh] overflow-y-auto px-4 py-2 bg-gray-800 md:text-l rounded-lg text-center text-gray-200 text-lg md:text-xl break-words whitespace-pre-line line-clamp-14 mt-4"
+      >
+        {{ question.answer }}
+      </div>
+    </div>
+  </div>
+
+  <div class="flex space-x-6 pt-4 justify-center">
+    <button
+      (click)="answer(true)"
+      class="w-16 h-16 text-3xl rounded-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center shadow-lg transition"
+    >
+      ✔
+    </button>
+    <button
+      (click)="answer(false)"
+      class="w-16 h-16 text-3xl rounded-full bg-red-500 hover:bg-red-600 text-white flex items-center justify-center shadow-lg transition"
+    >
+      ✖
+    </button>
+  </div>
+</div>
