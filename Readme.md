@@ -88,7 +88,7 @@ The AI service will run on [**http://localhost:5000**](http://localhost:5000).
 
 ```bash
 cd AIFlashcards_Frontend
-npm start
+npm run start
 ```
 
 The frontend will run on [**http://localhost:4200**](http://localhost:4200).
