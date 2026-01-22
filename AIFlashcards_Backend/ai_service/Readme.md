@@ -16,7 +16,7 @@ It uses a pre-trained **Google FLAN-T5** model from Hugging Face's `transformers
 2. Install dependencies:
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 3. Run the application:

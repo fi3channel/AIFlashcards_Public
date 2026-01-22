@@ -81,26 +81,19 @@ Guards ensure only authorized users can access protected pages and that tests or
 
 ## Getting Started
 
-1. **Clone the repository**
-
-   ```bash
-   git clone <repository-url>
-   cd AIFlashcardsFrontend
-   ```
-
-2. **Install dependencies**
+1. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-3. **Run the development server**
+2. **Run the development server**
 
    ```bash
    ng serve
    ```
 
-4. **Open the app in your browser**
+3. **Open the app in your browser**
 
    ```
    http://localhost:4200

@@ -8,26 +8,40 @@ AIFlashcards is a web application that generates quiz questions and answers from
 
 ### Node.js and npm
 
+#### Installation Steps(Ubuntu)
+```bash
+1) sudo apt update
+
+2) sudo apt upgrade
+
+3) curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+
+4) nvm -v (must print certain version) 
+
+5) nvm install 20
+
+6) nvm list (there the correct version should be visible)
+
+7) nvm use 20 (if not default)
+
+8) node -v
+
+9) npm -v
+```
+
 - Node.js: **v20.x** (LTS recommended)
 - npm: **v9.x** or higher
-
-Check your versions:
-
-```bash
-node -v
-npm -v
-```
 
 ### Python
 
 - Python: **3.10+**
-- pip: latest version
+- pip3: latest version
 
 Check your Python version:
 
 ```bash
 python3 --version
-pip --version
+pip3 --version
 ```
 
 ### System Requirements
