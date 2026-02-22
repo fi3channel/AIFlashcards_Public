@@ -7,7 +7,7 @@ import { InfoModalComponent } from '../../components/info-modal/info-modal.compo
 
 @Component({
   selector: 'app-login-page',
-  imports: [CommonModule, FormsModule, InfoModalComponent],
+  imports: [CommonModule, FormsModule],
   templateUrl: './login-page.html',
   styleUrls: ['./login-page.scss'],
   standalone: true,
@@ -17,7 +17,6 @@ import { InfoModalComponent } from '../../components/info-modal/info-modal.compo
  *
  * Component for user login.
  * Handles login form, authentication, and navigation to the dashboard or signup page.
- * Displays error messages using the InfoModalComponent.
  */
 export class LoginPage {
   // -------------------------
@@ -60,7 +59,6 @@ export class LoginPage {
    */
   login() {
     if (!this.username.trim() || !this.password.trim()) {
-      alert('Username and password are required');
       return;
     }
 

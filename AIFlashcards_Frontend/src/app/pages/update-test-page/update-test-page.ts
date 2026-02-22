@@ -68,7 +68,7 @@ export class UpdateTestPage {
           },
           error: (err) => {
             console.error('Failed to fetch test:', err);
-            alert('Could not load the test.');
+            this.showInfo('Load failed', 'Could not load the test.');
           },
         });
       }
@@ -191,7 +191,7 @@ export class UpdateTestPage {
    */
   onDelete() {
     if (!this.selectedTest) {
-      alert('No test selected to delete.');
+      this.showInfo('Delete failed', 'No test selected to delete.');
       return;
     }
 
@@ -199,12 +199,12 @@ export class UpdateTestPage {
       .deleteTest({ username: this.currentUser, title: this.selectedTest })
       .subscribe({
         next: () => {
-          alert('Test deleted successfully!');
+          this.showInfo('Delete successful', 'Test deleted successfully!');
           this.navigationService.goToDashboard();
         },
         error: (err) => {
           console.error('Failed to delete test:', err);
-          alert('Could not delete the test.');
+          this.showInfo('Delete failed', 'Could not delete the test.');
         },
       });
   }
