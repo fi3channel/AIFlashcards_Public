@@ -22,8 +22,8 @@ export class TestService {
   // -------------------------
   // Signals
   // -------------------------
-  private selectedTest = signal<string>('');
-  private selectedTestObject = signal<Test>({} as Test);
+  private selectedTest = signal<string | null>(null);
+  private selectedTestObject = signal<Test | null>(null);
 
   // -------------------------
   // Variables
@@ -91,8 +91,15 @@ export class TestService {
    *
    * @returns The selected test title.
    */
-  getSelectedTest(): string {
+  getSelectedTest(): string | null {
     return this.selectedTest();
+  }
+
+  /**
+   * Cleares selected test.
+   */
+  clearSelectedTest(): void {
+    this.selectedTest.set(null);
   }
 
   /**
@@ -109,7 +116,7 @@ export class TestService {
    *
    * @returns The selected Test object.
    */
-  getSelectedTestObject(): Test {
+  getSelectedTestObject(): Test | null {
     return this.selectedTestObject();
   }
 
@@ -118,7 +125,23 @@ export class TestService {
    *
    * @param test - The Test object to select.
    */
-  setSelectedTestObject(test: Test): void {
+  setSelectedTestObject(test: Test | null): void {
     this.selectedTestObject.set(test);
   }
+
+  /**
+   * Cleares selected test object.
+   */
+  clearSelectedTestObject(): void {
+    this.selectedTestObject.set(null);
+  }
+
+  /**
+   * Cleares both selected states.
+   */
+  clearAllSelectedState(): void {
+    this.clearSelectedTest();
+    this.clearSelectedTestObject();
+  }
+
 }

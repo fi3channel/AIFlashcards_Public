@@ -45,16 +45,21 @@ export class CreateTestPage {
   modalMessage = '';
   modalCallback: (() => void) | null = null;
 
-  constructor() {
-    const selectedTest: Test = this.testService.getSelectedTestObject();
-    if (selectedTest?.questions?.length) {
-      this.questions = selectedTest.questions.map((q) => ({ ...q }));
-      this.numberOfQuestions = selectedTest.numberOfQuestions || this.questions.length;
-      this.testTitle = selectedTest.title || '';
-    } else {
-      this.questions = [{ text: '', answer: '' }];
-    }
+constructor() {
+  const selectedTest = this.testService.getSelectedTestObject();
+
+  if (selectedTest?.questions?.length) {
+    this.questions = selectedTest.questions.map(q => ({ ...q }));
+    this.numberOfQuestions =
+      selectedTest.numberOfQuestions ?? this.questions.length;
+    this.testTitle = selectedTest.title ?? '';
+
+    // one-time use
+    this.testService.clearSelectedTestObject();
+  } else {
+    this.resetForm();
   }
+}
 
   /**
    * Displays an informational modal with the given title, message,
@@ -157,6 +162,7 @@ export class CreateTestPage {
       next: () => {
         this.showInfo('Creation successful', 'Test successfully created!', () => {
           this.navigationService.goToDashboard();
+          this.resetForm();
         });
       },
       error: (err) => {
@@ -190,5 +196,14 @@ export class CreateTestPage {
   onAddQuestion() {
     this.questions.push({ text: '', answer: '' });
     this.numberOfQuestions = this.questions.length;
+  }
+  
+  /**
+   * Resets the form.
+   */
+  resetForm() {
+    this.questions = [{ text: '', answer: '' }];
+    this.numberOfQuestions = 1;
+    this.testTitle = '';
   }
 }

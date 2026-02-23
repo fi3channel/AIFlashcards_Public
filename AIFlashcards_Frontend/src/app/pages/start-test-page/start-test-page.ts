@@ -54,7 +54,7 @@ export class StartTestPage {
    */
   constructor() {
     effect(() => {
-      this.selectedTest = this.testService.getSelectedTest();
+      this.selectedTest = this.testService.getSelectedTest() || '';
       this.currentUser = this.authService.getCurrentUser() || '';
 
       if (this.currentUser && this.selectedTest) {
